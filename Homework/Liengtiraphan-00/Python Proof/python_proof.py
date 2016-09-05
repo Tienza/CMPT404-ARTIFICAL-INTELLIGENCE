@@ -4,6 +4,19 @@ import scipy
 import sklearn
 import matplotlib
 import pandas
+import os
+
+print(" ")
+print("Class Name: CMPT404 Artificial Intelligence")
+print("Professor: Pablo Rivas")
+print(" ")
+
+print("Student's Name: Piradon (Tien) Liengtiraphan")
+print("Proof of Computer: " + os.getcwd())
+print(" ")
+
+print("Python file starts now...")
+print(" ")
 
 print("import sys")
 print("import numpy")
