@@ -1,0 +1,3 @@
+GitHub Username: Tienza
+Repo Name: CMPT404-ARTIFICAL-INTELLIGENCE 
+Repo URL: https://github.com/Tienza/CMPT404-ARTIFICAL-INTELLIGENCE.git
