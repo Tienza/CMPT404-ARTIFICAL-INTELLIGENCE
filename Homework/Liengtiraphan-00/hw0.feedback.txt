@@ -1,0 +1,63 @@
+14 pts
+
+Piradon,
+
+- You showed a nice proof that you have all the necessary setup for python.
+
+- You showed a nice proof that you have a GitHub account and that you added me as a
+  collaborator.
+
+- You provided a nice proof that you created a Kaggle account.
+
+About the problems:
+1. 
+You have the correct answer but a poor explanation.
+
+2. 
+You have the correct answer but a poor explanation.
+Why did you use something other than x_1 and x_2?
+
+3.(a)
+You have a very poor explanation.
+
+3.(b)
+You have an incorrect answer, the rank is 2.
+
+4. Gaussian
+The answer you provided is not complete. -1pt
+
+4. Multivariate Gaussian
+The answer you provided is not complete. 
+
+4. Bernoulli
+The formula you provided is correct.
+
+4. Binomial
+You provided the correct binomial distribution equation.
+
+4. Exponential
+The formula you provided is correct.
+
+6.
+You did not provide an answer. -1pt
+
+7.(a)
+You did not provide an answer. -1pt
+
+7.(b)
+The picture you provided is not the best, but it is legible nonetheless.
+
+8.
+You did not provide an answer. -2pts
+
+
+Overall an acceptable work:
+- No python to support your answers -2pts
+- No $\LaTeX$
+- No staple!
+- Not enough explanation of problem solutions  -1pt
+
+
+Peace,
+
+- Dr. Pablo Rivas
