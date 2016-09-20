@@ -110,6 +110,6 @@ for num in set:
     p = Perceptron(num)
     p.plot(save=True)'''
 
-for i in range(98):
+for i in range(100):
     p = Perceptron(1000)
     p.pla(save=False)
