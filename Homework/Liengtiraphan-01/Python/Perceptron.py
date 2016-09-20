@@ -28,7 +28,6 @@ class Perceptron:
                 x = np.append(x, [rand])
 
             s = int(np.sign(self.V.T.dot(x)))
-            print(s)
             X.append((x, s))
         return X
 
@@ -97,6 +96,9 @@ class Perceptron:
                           % (str(N), str(it)))
                 plt.savefig('p_N%s_it%s' % (str(N), str(it)), \
                             dpi=200, bbox_inches='tight')
+        with open('Perceptron_Results_10_Dimension.txt', 'a') as f:
+                f.write(str(it) + "\n")
+        print("Number of Iterations: " + str(it))
         self.w = w
 
     def check_error(self, M, vec):
@@ -108,5 +110,6 @@ for num in set:
     p = Perceptron(num)
     p.plot(save=True)'''
 
-p = Perceptron(100)
-p.pla(save=True)
+for i in range(98):
+    p = Perceptron(1000)
+    p.pla(save=False)
