@@ -1,0 +1,210 @@
+                                %----------------------------------% 
+                                % Manhattan College Math Dept      %
+                                % Student Homework Template v1     %
+                                %    R. Goldstone, 1/1/2011        %
+		      					% Edited by T. McGrail, 2/11/2011  % 
+		        				% Edited by R. McGovern, 8/16/2011 %
+		        				% Edited by J. Kirtland, 1/20/2015 %
+                                %----------------------------------%
+% PREAMBLE ============================================================================
+
+ \documentclass[9pt]{article}
+ \usepackage[utf8]{inputenc}    % set input encoding so bullets are printed
+ \usepackage{amssymb,amsmath,amsthm}
+   
+% FILL-IN, THEN GO TO DOCUMENT MAIN BODY **********************************************
+% TEXWORKS: USE CTRL-TAB TO JUMP FROM INPUT FIELD TO INPUT FIELD
+ \newcommand{\myname}{Piradon (Tien) Liengtiraphan} % Enter name
+ \newcommand{\duedate}{2016-09-22} % Enter date, e.g., April 1
+ \newcommand{\courseno}{404L-111}      % Enter course number (just the number)
+ \newcommand{\coursename}{Artificial Intelligence}    % Enter course name 
+ \newcommand{\instructorname}{Instructor: Dr. Pablo Rivas} % Enter instructor name
+ \newcommand{\assignumber}{}   % Enter assignment number#.
+ \newcommand{\exerciselist}{}      % Enter problem references.  Give a complete list, in order, of all of the problems that you will do on this assignment.  Use the format 2.20 to designate problem  # 20 from chapter 2 of the text.
+ \newcommand{\spacingfactor}{2}
+% END FILL-IN *************************************************************************
+
+% DOCUMENT STRUCTURES -----------------------------------------------------------------
+
+% PAGES 
+ \usepackage[paper=letterpaper, margin=1in, headsep=20pt]{geometry}
+    
+ \newcommand{\firstpageinfo}   
+     {\textsf{\large\myname}    \hfill     Math \courseno{:}\,\coursename \\
+	Semester Project Proposal \assignumber \hfill  Due:  \duedate \\
+	\instructorname}
+% END PAGES
+
+% HEADERS AND FOOTERS
+ \usepackage{fancyhdr}
+ \pagestyle{fancy}              % Headers and footers for page 2 and beyond
+   \lhead{\textit{\myname}}
+   \chead{\textit{Math \courseno}}
+   \rhead{\textit{\textit{Semester Project Proposal}}}
+   \cfoot{\textit{\thepage}}
+   \renewcommand{\headrulewidth}{0.4pt} 
+% END HEADERS AND FOOTERS
+
+% TEXT SPACING
+ \usepackage{setspace}   %Allows for Doublespacing
+ \usepackage{ifthen}	 %Used to create a response environment
+% END TEXT SPACING
+
+% PROBLEM AND RESPONSE ENVIRONMENTS
+  \newcommand\myqed{}                 % creates command for tombstone at end of proof
+ \newcommand{\printmyqed}[1][]       % decides whether to print tombstone or not
+   {%
+   \ifthenelse{\equal{#1}{Proof}}
+   {\renewcommand{\myqed}{\qed}}
+   {\renewcommand{\myqed}{}}
+   }
+
+ \newenvironment{exercise}[1][]{%
+   \bigskip                          % Space before problem statement
+   \noindent \textsf{Exercise #1.}\slshape }{}
+     
+ \newenvironment{response}[1][\textit{Solution}]{%
+   \printmyqed[#1]
+   \begin{spacing}{\spacingfactor}
+   \medskip                          % Space before solution 
+   \noindent \textit{#1.}}{\myqed\end{spacing}\medskip\hrule}
+% END PROBLEM AND RESPONSE ENVIRONMENTS
+
+% END DOCUMENT STRUCTURES -------------------------------------------------------------
+
+% BLACKBOARD BOLD NUMBER SYSTEM COMMANDS
+ \newcommand{\R}{\mathbb{R}} % Type \R in math mode to get the symbol for the real numbers
+ \newcommand{\C}{\mathbb{C}} % Type \C in math mode to get the symbol for the complex numbers
+ \newcommand{\Z}{\mathbb{Z}} % Type \Z in math mode to get the symbol for the integers
+ \newcommand{\Q}{\mathbb{Q}} % Type \Q in math mode to get the symbol for the rational numbers
+ \newcommand{\N}{\mathbb{N}} % Type \N in math mode to get the symbol for the natural numbers
+ \newcommand{\zmod}[1]{\Z_{#1}} % Type \zmod{m} in math modeto get integers modulo m
+ \newcommand{\F}{\mathbb{F}}    % For generic field symbol
+ \newcommand{\QQ}{\mathbb{H}}   % For the quaternions
+\newcommand{\pow}{\mathcal{P}}	% For the power set.
+% END BLACKBOARD BOLD NUMBER SYSTEM COMMANDS
+
+% LOGIC COMMANDS
+ \newcommand{\OR}{\vee}
+ \newcommand{\AND}{\wedge}
+ \newcommand{\IMPLIES}{\Rightarrow}
+ \newcommand{\NOT}{\sim \negmedspace}
+ % \iff already exists
+% END OF LOGIC COMMANDS
+
+% END PREAMBLE 
+
+% =====================================================================================
+
+% DOCUMENT MAIN BODY
+
+% Use \begin{problem}[problem reference]...\end{problem} 
+% to enter a problem statement.
+
+% Use \begin{response}...\end{response} to enter your solution.
+% You can change the default label "Solution" to something else 
+% by typing \begin{response}[New label]...\end{response}.
+
+\begin{document}
+\thispagestyle{empty}
+
+% TOP MATTER --------------------------------------------------------------------------
+ \noindent\firstpageinfo 
+ \begin{center} \underline{\textsf{A.I. Driven Interactive Storytelling}}\\[5pt] \exerciselist \end{center}
+ \medskip\hrule
+% END TOP MATTER ----------------------------------------------------------------------
+\begin{flushleft}
+    One of the oldest method of entertainment is storytelling. The ability to convey emotions, settings, life, and characters through the spoken word is truly a miraculous thing. However, one thing that has always been present through this method of entertainment is the “human element”. Humans have passed on and created stories for generations, and they have always stemmed from one another; from the “Epic of Gilgamesh” to relatively niche books such as “The Unremembered Empire” . A new area of study being done by the University of Alberta is exploring the possibility of Interactive Storytelling via Artificial intelligence. There are many areas of study that can stem from this study, from situational modelling to emotional and cultural modeling. The stories generated via an Artificial Intelligence capable of ingesting and formulating ideas give an unbiased and novel view of situations. \\
+    
+    \ \
+    
+    While the concept of an artificial intelligence generating an award-winning story is still quite far-fetched. What this project hopes to accomplish is the establishment of a basic artificial intelligence that is responsive to the input that is provided, and returns with relevant self generated content, which would then be stored for later use in a learning database. The reason this project appeal to me is the fact that I’ve always been fascinated by people’s ability to create stories, especially interactive stories. Given that interactive stories allow people to feel that their actions and choices have a real impact on the overarching world, therefore causing the user to be more deeply invested in the events of this made up world. \\
+    
+    \ \
+    
+    This project aims to create a text-based ai that responds with appropriate content depending on user parameters. Generating interesting content based on what is considered popular or interesting depending on demographic or in general if demographic can not be attained. 
+    
+    \begin{itemize}
+        \item The first major milestone in this project would be the ability to get the AI to respond with relative content depending on user input. For Example, if the user inputs fairy tales, the AI would respond with a list of stories that fall under this category. Without the need to tag content for the AI, ideally it would analyze the content of the story and return the respective classifications.
+        \item Secondly when the AI is able to respond with relevant content. The story must then be made interactive. Allowing the user to weigh in on the story being presented. Which the Ai would then respond with more relevant content and building on what had been said by both sides. 
+        \item This next step might seem more akin to profiling, however, the ability to tailor a story to a particular audience is a key ability in making a successful story. It is much easier to make a good story when you know your audience than attempting to appeal to the entire demographic. From information provided by the user the AI will then respond with content that it believes appeals to the demographic the user belongs to. 
+    \end{itemize}
+    
+    \ \
+    
+    My proposal is to create this artificially intelligent storyteller by using machine learning to enhance the quality of stories that it can tell, by constantly absorbing and taking in different stories from the world around it.
+\end{flushleft}
+
+%----------------------------------------------------------------------------------------
+
+
+
+%---------------------------------------------------------------------------------
+\end{document} 
+%======================================================================================
+% END DOCUMENT MAIN BODY ==============================================================
+% COPY AND PASTE THIS DOUBLE-SPACE PROBLEM-RESPONSE PAIR AS NEEDED
+%======================================================================================
+
+\begin{exercise}[•] % Put problem reference inside the brackets
+Statement of the problem goes here.
+\end{exercise}
+
+
+\begin{response}[Solution]
+Solution of the problem goes here.
+\end{response}
+
+
+%---------------------------------------------------------------------------------------
+% COPY AND PASTE THIS DOUBLE-SPACE PROBLEM-PROOF PAIR AS NEEDED
+
+\begin{exercise}[•] % Put problem reference inside the brackets
+Statement of the problem goes here.
+\end{exercise}
+
+
+\begin{response}[Proof]
+Solution of the problem goes here.
+\end{response}
+
+
+
+%---------------------------------------------------------------------------------------
+% DON'T USE THE SINGLE SPACE IN THIS CLASS! COPY AND PASTE THIS SINGLE-SPACE PROBLEM-RESPONSE PAIR AS NEEDED IN OTHER CLASSES.
+
+\begin{exercise}[•] % Put problem reference inside the brackets
+Statement of the problem goes here.
+\end{exercise}
+
+\begin{response}[Proof]
+Solution of the problem goes here.
+\end{response}
+
+%--------------------------------------------------------------------------------------
+
+%   DON'T USE THE SINGLE SPACE IN THIS CLASS!  COPY AND PASTE THIS SINGLE-SPACE PROBLEM-PROOF PAIR AS NEEDED IN OTHER CLASSES
+
+\begin{exercise}[•] % Put problem reference inside the brackets
+Statement of the problem goes here.
+\end{exercise}
+
+\begin{response}[Your label]
+Solution of the problem goes here.
+\end{response}
+
+%--------------------------------------------------------------------------------------------------
+%   TRUTH TABLE TEMPLATE
+\[
+\begin{matrix}
+P & Q & R\\ \hline
+T & T & T \rule{0pt}{1.1em}\\
+T & F & T\\
+F & T & T\\
+F & F & T\\
+T & T & F\\
+T & F & F\\
+F & T & F\\
+F & F & F
+\end{matrix}}
+\]
