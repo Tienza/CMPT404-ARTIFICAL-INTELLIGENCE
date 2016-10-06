@@ -1,0 +1,16 @@
+9 pts
+
+Tian, the project you propose poses to serious problems: 
+1) the data... it looks like you will be creating your own dataset, and that
+   could be a problem because of time constraints and because it is difficult
+   to do.
+2) project is too hard... once you have data, the project is quite complicated
+   and you may not have enough time to finish.
+
+I recommend you to think of something else and let me know. Think of a kaggle
+dataset or UCI dataset. However, you could ignore my advise and go for it if
+you already have data and if you already have some experience on this.
+
+Go for it.
+
+- Dr. Rivas
