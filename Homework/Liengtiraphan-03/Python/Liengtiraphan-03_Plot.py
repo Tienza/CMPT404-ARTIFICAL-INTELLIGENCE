@@ -112,7 +112,7 @@ class Pocket:
         # Initialize the weigths to zeros
         w = np.zeros(3)
         # ToDo:::Enter the LinRegW below & remember to uncomment
-        #w = np.array([ 0.54592846, -0.96745805, 0.30085587])
+        w = np.array([ [0.06020542, 0.26485217, -0.14155255]])
         self.bestW = copy.deepcopy(w)  # for Pocket
         self.plaError = []
         self.pocketError = []  # for Pocket
@@ -161,6 +161,5 @@ def main():
         it[x] = p.pla()
         print(it)
         plt.show()
-        # ToDo:::Make sure your removed all the 'ToDo's when done.
 
 main()
