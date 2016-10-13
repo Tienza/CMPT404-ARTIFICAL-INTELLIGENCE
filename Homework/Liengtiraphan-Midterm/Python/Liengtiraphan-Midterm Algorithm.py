@@ -3,84 +3,79 @@ import random
 import os, subprocess
 import matplotlib.pyplot as plt
 import copy
+from numpy import genfromtxt
 
 
 class Pocket:
-    def __init__(self, N):
+    def __init__(self):
         # Random linearly separated data
-        self.X = self.generate_points(N)
+        self.X = self.generate_points()
 
-    def generate_points(self, N):
-        X, y = self.make_semi_circles(n_samples=N, sep=1)
+    def generate_points(self):
+        X, y = self.make_dataset()
+        N = len(X)
         bX = []
         for k in range(0, N):
             bX.append((np.concatenate(([1], X[k, :])), y[k]))
 
         # this will calculate linear regression at this point
-        X = np.concatenate((np.ones((N, 1)), X), axis=1);  # adds the 1 constant
+        X = np.concatenate((np.ones((N, 1)), X), axis=1)  # adds the 1 constant
         self.linRegW = np.linalg.pinv(X.T.dot(X)).dot(X.T).dot(y)  # lin reg
-        print
-        self.linRegW
+        print(self.linRegW)
 
         return bX
 
-    def make_semi_circles(self, n_samples=2000, thk=5, rad=10, sep=5, plot=True):
-        """Make two semicircles circles
-        A simple toy dataset to visualize classification algorithms.
-        Parameters
-        ----------
-        n_samples : int, optional (default=2000)
-            The total number of points generated.
-        thk : int, optional (default=5)
-            Thickness of the semi circles.
-        rad : int, optional (default=10)
-            Radious of the circle.
-        sep : int, optional (default=5)
-            Separation between circles.
-        plot : boolean, optional (default=True)
-            Whether to plot the data.
-        Returns
-        -------
-        X : array of shape [n_samples, 2]
-            The generated samples.
-        y : array of shape [n_samples]
-            The integer labels (-1 or 1) for class membership of each sample.
-        """
+    def make_dataset(self):
+        # Dataset Graph 1
+        dataset = genfromtxt('features.csv', delimiter=' ')
+        y = dataset[:, 0]
+        X = dataset[:, 1:]
+        y[y!=0] = -1
+        y[y==0] = +1
 
-        noisey = np.random.uniform(low=-thk / 100.0, high=thk / 100.0, size=(n_samples // 2))
+        c0 = plt.scatter(X[y == -1, 0], X[y == -1, 1], 20, color='r', marker='x')
+        c1 = plt.scatter(X[y == 1, 0], X[y == 1, 1], 20, color='b', marker='o')
 
-        noisex = np.random.uniform(low=-rad / 100.0, high=rad / 100.0, size=(n_samples // 2))
+        plt.legend((c0, c1), ('All Other Numbers -1', 'Number Zero +1'), loc='upper right', scatterpoints=1, fontsize=11)
 
-        separation = np.ones(n_samples // 2) * ((-sep * 0.1) - 0.6)
+        plt.xlabel(r'$x_1$')
+        plt.ylabel(r'$x_2$')
 
-        n_samples_out = n_samples // 2
-        n_samples_in = n_samples - n_samples_out
+        plt.title(r'Intensity and Symmetry of Digits')
 
-        # generator = check_random_state(random_state)
+        plt.savefig('midterm.plot1.pdf', bbox_inches='tight')
+        plt.show()
 
-        outer_circ_x = np.cos(np.linspace(0, np.pi, n_samples_out)) + noisex
-        outer_circ_y = np.sin(np.linspace(0, np.pi, n_samples_out)) + noisey
-        inner_circ_x = (1 - np.cos(np.linspace(0, np.pi, n_samples_in))) + noisex
-        inner_circ_y = (1 - np.sin(np.linspace(0, np.pi, n_samples_in)) - .5) + noisey + separation
+        # Dataset Graph 2
+        dataset = genfromtxt('features.csv', delimiter=' ')
+        y = dataset[:, 0]
+        X = dataset[:, 1:]
+        y[y != 1] = -1
+        y[y == 1] = +1
 
-        X = np.vstack((np.append(outer_circ_x, inner_circ_x),
-                       np.append(outer_circ_y, inner_circ_y))).T
-        y = np.hstack([np.ones(n_samples_in, dtype=np.intp) * -1,
-                       np.ones(n_samples_out, dtype=np.intp)])
+        c0 = plt.scatter(X[y == -1, 0], X[y == -1, 1], 20, color='r', marker='x')
+        c1 = plt.scatter(X[y == 1, 0], X[y == 1, 1], 20, color='b', marker='o')
 
-        if plot:
-            plt.plot(outer_circ_x, outer_circ_y, 'r.')
-            plt.plot(inner_circ_x, inner_circ_y, 'b.')
-            plt.show()
+        plt.legend((c0, c1), ('All Other Numbers -1', 'Number Zero +1'), loc='upper right', scatterpoints=1,
+                   fontsize=11)
+
+        plt.xlabel(r'$x_1$')
+        plt.ylabel(r'$x_2$')
+
+        plt.title(r'Intensity and Symmetry of Digits')
+
+        plt.savefig('midterm.plot2.pdf', bbox_inches='tight')
+        plt.show()
 
         return X, y
 
     def plot(self, mispts=None, vec=None, save=False):
-        fig = plt.figure(figsize=(5, 5))
-        plt.xlim(-1.5, 2.5)
-        plt.ylim(-2.0, 1.5)
+        plt.figure(figsize=(5, 5))
+        plt.xlim(0.0, 0.7)
+        plt.ylim(-8.0, 1.5)
         l = np.linspace(-1.5, 2.5)
         V = self.linRegW
+        print(V)
         a, b = -V[1] / V[2], -V[0] / V[2]
         plt.plot(l, a * l + b, 'k-')
         V = self.bestW  # for Pocket
@@ -92,16 +87,16 @@ class Pocket:
         if mispts:
             for x, s in mispts:
                 plt.plot(x[1], x[2], cols[s] + 'x')
-        if vec.size:
+        if vec:
             aa, bb = -vec[1] / vec[2], -vec[0] / vec[2]
             plt.plot(l, aa * l + bb, 'g-', lw=2)
         if save:
             if not mispts:
                 plt.title('N = %s' % (str(len(self.X))))
             else:
-                plt.title('N = %s with %s test points' \
+                plt.title('N = %s with %s test points'
                           % (str(len(self.X)), str(len(mispts))))
-            plt.savefig('p_N%s' % (str(len(self.X))), \
+            plt.savefig('p_N%s' % (str(len(self.X))),
                         dpi=200, bbox_inches='tight')
 
     def classification_error(self, vec, pts=None):
@@ -131,9 +126,10 @@ class Pocket:
 
     def pla(self, save=False):
         # Initialize the weigths to zeros
-        # w = np.zeros(3)
-        w = np.array([-0.17892634, 0.13887177, -1.07425448])
-        self.bestW = copy.deepcopy(w);  # for Pocket
+        w = np.zeros(3)
+        # ToDo:::Enter the LinRegW below & remember to uncomment
+        # w = np.array([])
+        self.bestW = copy.deepcopy(w)  # for Pocket
         self.plaError = []
         self.pocketError = []  # for Pocket
         X, N = self.X, len(self.X)
@@ -141,7 +137,10 @@ class Pocket:
         # Iterate until all points are correctly classified
         self.plaError.append(self.classification_error(w))
         self.pocketError.append(self.plaError[it])  # for Pocket
-        while self.plaError[it] != 0:
+        while self.plaError[it] != 0 | it < 2500:
+            # ToDo:::Delete below if statement when you are done. This is so you know you're code's still running.
+            if(it % 100 == 0):
+                print(it)
             it += 1
             # Pick random misclassified point
             x, s = self.choose_miscl_point(w)
@@ -151,40 +150,33 @@ class Pocket:
             self.plaError.append(self.classification_error(w))
             if (self.pocketError[it - 1] > self.plaError[it]):  # for Pocket
                 self.pocketError.append(self.plaError[it])
-                self.bestW = copy.deepcopy(w);
+                self.bestW = copy.deepcopy(w)
             else:
                 self.pocketError.append(self.pocketError[it - 1])
 
             if save:
                 self.plot(vec=w)
-                plt.title('N = %s, Iteration %s\n' \
+                plt.title('N = %s, Iteration %s\n'
                           % (str(N), str(it)))
-                plt.savefig('p_N%s_it%s' % (str(N), str(it)), \
+                plt.savefig('p_N%s_it%s' % (str(N), str(it)),
                             dpi=200, bbox_inches='tight')
                 plt.close()
         self.w = w
-        print(self.plaError)
-        print(self.pocketError)
-
+        self.plot()
         return it
 
-    def check_error(self, M, vec):
-        check_pts = self.generate_points(M)
+    def check_error(self, vec):
+        check_pts = self.generate_points()
         return self.classification_error(vec, pts=check_pts)
 
 
 def main():
     it = np.zeros(1)
     for x in range(0, 1):
-        p = Pocket(2000)
-        it[x] = p.pla(save=True)
+        p = Pocket()
+        it[x] = p.pla()
         print(it)
-
-        # n, bins, patches = plt.hist(it, 50, normed=1, facecolor='green', alpha=0.75)
-        # plt.show()
-
-
-        # p.plot()
-
+        plt.show()
+        # ToDo:::Make sure your removed all the 'ToDo's when done.
 
 main()
