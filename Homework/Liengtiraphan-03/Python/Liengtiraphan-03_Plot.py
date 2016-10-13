@@ -4,6 +4,7 @@ import os, subprocess
 import matplotlib.pyplot as plt
 import copy
 from numpy import genfromtxt
+from sklearn.datasets.samples_generator import make_blobs
 
 
 class Pocket:
@@ -26,45 +27,28 @@ class Pocket:
         return bX
 
     def make_dataset(self):
-        # Dataset Graph 1
-        dataset = genfromtxt('features.csv', delimiter=' ')
-        y = dataset[:, 0]
-        X = dataset[:, 1:]
-        y[y!=0] = -1
-        y[y==0] = +1
+        # Generates random centers
+        ctrs = 3 * np.random.normal(0, 1, (2, 2))
 
-        c0 = plt.scatter(X[y == -1, 0], X[y == -1, 1], 20, color='r', marker='x')
-        c1 = plt.scatter(X[y == 1, 0], X[y == 1, 1], 20, color='b', marker='o')
+        # Generates random data follwing normal distributions
+        X, y = make_blobs(n_samples=100, centers=ctrs, n_features=2, cluster_std=1.0, shuffle=False, random_state=0)
 
-        plt.legend((c0, c1), ('All Other Numbers -1', 'Number Zero +1'), loc='upper right', scatterpoints=1, fontsize=11)
+        y[y == 0] = -1  # Makes sure we have +1/-1 lables
 
+        # Plots data
+        c0 = plt.scatter(X[y == -1, 0], X[y == -1, 1], s=20, color='r', marker='x')
+        c1 = plt.scatter(X[y == 1, 0], X[y == 1, 1], s=20, color='b', marker='o')
+
+        # Displays Legend
+        plt.legend((c0, c1), ('Class_-1', 'Class_+1'), loc='upper right', scatterpoints=1, fontsize=11)
+
+        # Displays axis legends and title
         plt.xlabel(r'$x_1$')
         plt.ylabel(r'$x_2$')
+        plt.title(r'Two_simple_clusters_of_random_data')
 
-        plt.title(r'Intensity and Symmetry of Digits')
-
-        plt.savefig('midterm.plot1.pdf', bbox_inches='tight')
-        plt.show()
-
-        # Dataset Graph 2
-        dataset = genfromtxt('features.csv', delimiter=' ')
-        y = dataset[:, 0]
-        X = dataset[:, 1:]
-        y[y != 1] = -1
-        y[y == 1] = +1
-
-        c0 = plt.scatter(X[y == -1, 0], X[y == -1, 1], 20, color='r', marker='x')
-        c1 = plt.scatter(X[y == 1, 0], X[y == 1, 1], 20, color='b', marker='o')
-
-        plt.legend((c0, c1), ('All Other Numbers -1', 'Number Zero +1'), loc='upper right', scatterpoints=1,
-                   fontsize=11)
-
-        plt.xlabel(r'$x_1$')
-        plt.ylabel(r'$x_2$')
-
-        plt.title(r'Intensity and Symmetry of Digits')
-
-        plt.savefig('midterm.plot2.pdf', bbox_inches='tight')
+        # Saves the figure into a .pdf file (desired!)
+        plt.savefig('hw3.plot.pdf', bbox_inches='tight')
         plt.show()
 
         return X, y
@@ -128,7 +112,7 @@ class Pocket:
         # Initialize the weigths to zeros
         w = np.zeros(3)
         # ToDo:::Enter the LinRegW below & remember to uncomment
-        w = np.array([ 0.54592846, -0.96745805, 0.30085587])
+        #w = np.array([ 0.54592846, -0.96745805, 0.30085587])
         self.bestW = copy.deepcopy(w)  # for Pocket
         self.plaError = []
         self.pocketError = []  # for Pocket
@@ -177,5 +161,6 @@ def main():
         it[x] = p.pla()
         print(it)
         plt.show()
+        # ToDo:::Make sure your removed all the 'ToDo's when done.
 
 main()
