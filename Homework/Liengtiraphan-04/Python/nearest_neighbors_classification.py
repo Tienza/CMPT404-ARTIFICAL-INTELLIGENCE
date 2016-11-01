@@ -54,16 +54,22 @@ for n_neighbors in range(1, 900, 2):
 
 # to do here: given this array of E_outs in CV, find the max, its
 # corresponding index, and its corresponding value of n_neighbors
+
+# Sorts and assigns the bestk array into new_bestk sorted in descending values
 new_bestk = sorted(bestk, reverse=True)
+# Grabs the top three values in the new_bestk for indexing in next part of code
 get_index = [new_bestk[0], new_bestk[1], new_bestk[2]]
 
 print(sorted(bestk, reverse=True))
 print("")
+# Gets the index in bestk of values i in get_index
 for i in get_index:
     print("Idex of " + str(i) + "in bestk: " + str(bestk.index(i)))
+    # Uses the index to get the n_neighbors
     print("n_neighbors of " + str(i) + " in bestk: " + str(bestk.index(i) + (bestk.index(i) + 1)))
     print("")
 print("")
+# Print the CV
 for i in range(3):
     print("Rank " + str(i+1) + ". " "CV E_out: " + str(new_bestk[i]))
 
