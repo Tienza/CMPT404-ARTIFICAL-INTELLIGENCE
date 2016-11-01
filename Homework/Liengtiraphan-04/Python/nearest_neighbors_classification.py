@@ -24,8 +24,8 @@ y[y == 0] = +1  # number zero is the positive class
 bestk = []
 kc = 0
 for n_neighbors in range(1, 1000, 2):
-    kf = KFold(n_splits=10)
-    # n_neighbors = 85
+    kf = KFold(n_splits=3)
+    n_neighbors = 2
     kscore = []
     k = 1
     for train, test in kf.split(X):
