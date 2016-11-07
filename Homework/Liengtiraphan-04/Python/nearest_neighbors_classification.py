@@ -20,6 +20,10 @@ X, y, ytrue = hw4.genDataSet(1000)#genfromtxt('features.csv', delimiter=' ')
 X = X.reshape(len(X),1)
 y = y.reshape(len(y),1)
 ytrue = ytrue.reshape(len(ytrue),1)
+
+plt.plot(X, y, '.')
+plt.plot(X, ytrue, 'rx')
+plt.show()
 '''y = np.array(dataset)[:, 0]
 X = np.array(dataset)[:, 1:]
 y[y != 0] = -1  # rest of numbers are negative class
@@ -72,6 +76,22 @@ print("")
 # Print the CV
 for i in range(3):
     print("Rank " + str(i+1) + ". " "CV E_out: " + str(new_bestk[i]))
+
+clf = neighbors.KNeighborsRegressor(new_bestk[0], weights='distance')
+clf.fit(X, y)
+
+print("Eout (R^2): ")
+print(clf.score(X,y))
+
+print("Eout true (R^2): ")
+print(clf.score(X, ytrue))
+
+yhat = clf.predict(X)
+
+plt.plot(X, y, '.')
+plt.plot(X, ytrue, 'rx')
+plt.plot(X, yhat, 'k+')
+
 
 # Write to File
 with open('hw4_results.txt', 'w') as f:
