@@ -1,5 +1,6 @@
 import re
 import xlwt
+from tempfile import TemporaryFile
 
 # Forwards Dataset
 forward = "Dataset/forward_json.txt"
@@ -7,21 +8,19 @@ forward = "Dataset/forward_json.txt"
 discard = "Dataset/discard_json.txt"
 # Test Dataset
 test_data = "Dataset/test_json.txt"
-# Data Sheet Name
-sheet_name = "test.xls"
 # Debug Variable
-debug = True
+debug = False
 
 # Dataset Excel Name
-data_sheet = xlwt.Workbook()
-sheet1 = data_sheet.add_sheet("test")
+'''data_sheet = xlwt.Workbook()
+sheet1 = data_sheet.add_sheet("test")'''
 
 # Print to Excel
-def print_to_excel(info_list):
+'''def print_to_excel(info_list, sheet_name):
     for i,e in enumerate(info_list):
         sheet1.write(i,0,e)
 
-    data_sheet.save(sheet_name)
+    data_sheet.save(sheet_name)'''
 
 # Function to grab data from json
 def get_data(file_name):
@@ -70,6 +69,96 @@ def get_data(file_name):
     return src_ip, src_port, dest_ip, dest_port, city, subdivision, lat, country, postal, long, host, host_name, isp_ip, asn
 
 # Gets all the data and assigns it to the appropriate variable for printing later on
-src_ip, src_port, dest_ip, dest_port, city, subdivision, lat, country, postal, long, host, host_name, isp_ip, asn = get_data(test_data)
+src_ip, src_port, dest_ip, dest_port, city, subdivision, lat, country, postal, long, host, host_name, isp_ip, asn = get_data(discard)
 
-print_to_excel(src_ip)
+#data_types = [src_ip, src_port, dest_ip, dest_port, city, subdivision, lat, country, postal, long, host, host_name, isp_ip, asn]
+
+def get_unique(list):
+    ulist = set(list)
+
+    '''for value in ulist:
+        print(str(value))'''
+    new_a = []
+
+    for ip in ulist:
+        new_a.append(ip)
+
+
+    return new_a
+
+#get_unique(src_port)
+unique_list = get_unique(src_port)
+
+for i in range(len(src_port)):
+    for j in range(len(unique_list)):
+        if src_port[i] == unique_list[j]:
+            src_port[i] = j*10
+
+for stuff in src_port:
+    print(stuff)
+#--------------------------------#
+# Print Variables
+src_ip_print = False
+src_port_print = False
+dest_ip_print = False
+dest_port_print = False
+city_print = False
+subdivision_print = False
+lat_print = False
+country_print = False
+postal_print = False
+long_print = False
+host_print = False
+host_name_print = False
+isp_ip_print = False
+asn_print = False
+
+if src_ip_print:
+    for ip in src_ip:
+        print(ip)
+if src_port_print:
+    for port in src_port:
+        print(port)
+if dest_ip_print:
+    for ip in dest_ip:
+        print(ip)
+if dest_port_print:
+    for port in dest_port:
+        print(port)
+if city_print:
+    for city_name in city:
+        print(city_name)
+if subdivision_print:
+    for subdivision_name in subdivision:
+        print(subdivision_name)
+if lat_print:
+    for lat_num in lat:
+        print(lat_num)
+if country_print:
+    for country_name in country:
+        print(country_name)
+if postal_print:
+    for postal_num in postal:
+        print(postal_num)
+if long_print:
+    for long_num in long:
+        print(long_num)
+if host_print:
+    with open("temp.txt", "w") as file:
+        for host_url in host:
+            file.writelines(host_url+"\n")
+if host_name_print:
+    with open("temp.txt", "w") as file:
+        for name in host_name:
+            file.writelines(name + "\n")
+if isp_ip_print:
+    for ip in isp_ip:
+        print(ip)
+if asn_print:
+    for num in asn:
+        print(num)
+#--------------------------------#
+# Print All Records
+'''for i in range(len(data_types)):
+    for records in data_types[i]:
+        print(records)'''
