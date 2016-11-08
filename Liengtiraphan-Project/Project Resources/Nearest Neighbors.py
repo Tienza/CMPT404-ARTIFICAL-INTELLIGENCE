@@ -15,7 +15,7 @@ import time
 
 
 # read digits data & split it into X (training input) and y (target output)
-X, y, ytrue = genfromtxt('Dataset/IP-Port.csv', delimiter=' ')
+X, y, ytrue = genfromtxt('Dataset/features.csv', delimiter=' ')
 
 X = X.reshape(len(X),1)
 y = y.reshape(len(y),1)
