@@ -8,49 +8,49 @@ Modified in class by Dr. Rivas
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
-from sklearn import neighbors
+from sklearn.cluster import KMeans
+from sklearn import metrics
+from sklearn.metrics import pairwise_distances
 from numpy import genfromtxt
 from sklearn.model_selection import KFold
 import time
 
 
 # read digits data & split it into X (training input) and y (target output)
-X, y, ytrue = genfromtxt('Dataset/features.csv', delimiter=' ')
+X = genfromtxt('Dataset/IP-Port.csv', delimiter=' ')
 
-X = X.reshape(len(X),1)
-y = y.reshape(len(y),1)
-ytrue = ytrue.reshape(len(ytrue),1)
 
-plt.plot(X, y, '.')
-plt.plot(X, ytrue, 'rx')
+plt.plot(X[:,0], X[:,1], '.')
+plt.plot(X[:,0], X[:,2], 'r.')
 plt.show()
 
 bestk=[]
 kc=0
-for n_neighbors in range(1,101,2):
+for clusters in range(2,101,1):
   kf = KFold(n_splits=10)
-  #n_neighbors = 85
+  #clusters = 85
   kscore=[]
   k=0
   for train, test in kf.split(X):
     #print("%s %s" % (train, test))
-    X_train, X_test, y_train, y_test = X[train], X[test], y[train], y[test]
+    X_train, X_test = X[train], X[test]
   
     #time.sleep(100)
   
     # we create an instance of Neighbors Classifier and fit the data.
-    clf = neighbors.KNeighborsRegressor(n_neighbors, weights='distance')
-    clf.fit(X_train, y_train)
-  
-    kscore.append(clf.score(X_test,y_test))
-    #print kscore[k]
+    clf = KMeans(n_clusters=clusters)
+    clf.fit(X_train)
+ 
+    labels = clf.labels_ 
+    kscore.append(metrics.silhouette_score(X_train, labels, metric='euclidean'))
+    print kscore[k]
     k=k+1
   
-  print (n_neighbors)
+  print (clusters)
   bestk.append(sum(kscore)/len(kscore))
   print(bestk[kc])
   kc+=1
 
 # to do here: given this array of E_outs in CV, find the max, its 
-# corresponding index, and its corresponding value of n_neighbors
+# corresponding index, and its corresponding value of clusters
 print(bestk)
