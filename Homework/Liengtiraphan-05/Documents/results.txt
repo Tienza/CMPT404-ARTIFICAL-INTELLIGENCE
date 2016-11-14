@@ -1,0 +1,144 @@
+Neurons 1, eta 0.1. Testing set CV score: -9.207476
+Neurons 1, eta 0.2. Testing set CV score: -7.073433
+Neurons 1, eta 0.3. Testing set CV score: -4.154528
+Neurons 2, eta 0.4. Testing set CV score: -3.062282
+Neurons 26, eta 0.2. Testing set CV score: -2.676082
+C:\Users\Tien\Anaconda3\lib\site-packages\sklearn\neural_network\multilayer_perceptron.py:563: ConvergenceWarning: Stochastic Optimizer: Maximum iterations reached and the optimization hasn't converged yet.
+  % (), ConvergenceWarning)
+Neurons 80, eta 0.1. Testing set CV score: -2.249283
+Iteration 1, loss = 1.12327424
+Iteration 2, loss = 0.33734378
+Iteration 3, loss = 0.13294434
+Iteration 4, loss = 0.09311983
+Iteration 5, loss = 0.04162333
+Iteration 6, loss = 0.03495450
+Iteration 7, loss = 0.01905052
+Iteration 8, loss = 0.01664378
+Iteration 9, loss = 0.01686223
+Iteration 10, loss = 0.01704331
+Iteration 11, loss = 0.01499820
+Iteration 12, loss = 0.01478885
+Iteration 13, loss = 0.01353105
+Iteration 14, loss = 0.01449274
+Iteration 15, loss = 0.01383152
+Iteration 16, loss = 0.01422038
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+Training set score: 0.855029
+Testing set score: 0.848018
+==============================================================================================
+Neurons 1, eta 0.1. Testing set CV score: -18.174426
+Neurons 1, eta 0.2. Testing set CV score: -3.883386
+Neurons 23, eta 0.2. Testing set CV score: -2.903743
+Iteration 1, loss = 1.65037267
+Iteration 2, loss = 0.27728676
+Iteration 3, loss = 0.12173547
+Iteration 4, loss = 0.11560370
+Iteration 5, loss = 0.07184434
+Iteration 6, loss = 0.04709572
+Iteration 7, loss = 0.03103487
+Iteration 8, loss = 0.01969855
+Iteration 9, loss = 0.02030414
+Iteration 10, loss = 0.01800443
+Iteration 11, loss = 0.01716709
+Iteration 12, loss = 0.01581922
+Iteration 13, loss = 0.01523209
+Iteration 14, loss = 0.01553805
+Iteration 15, loss = 0.01490182
+Iteration 16, loss = 0.01457925
+Iteration 17, loss = 0.01466594
+Iteration 18, loss = 0.01467055
+Iteration 19, loss = 0.01451313
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+Training set score: 0.830358
+Testing set score: 0.841973
+==============================================================================================
+Neurons 1, eta 0.1. Testing set CV score: -2.983049
+Neurons 33, eta 0.2. Testing set CV score: -2.339948
+Neurons 52, eta 0.2. Testing set CV score: -1.433842
+Iteration 1, loss = 3.39556563
+Iteration 2, loss = 0.58779442
+Iteration 3, loss = 0.28642889
+Iteration 4, loss = 0.16652940
+Iteration 5, loss = 0.11571801
+Iteration 6, loss = 0.06192633
+Iteration 7, loss = 0.06048725
+Iteration 8, loss = 0.03904688
+Iteration 9, loss = 0.02509819
+Iteration 10, loss = 0.01796735
+Iteration 11, loss = 0.01961647
+Iteration 12, loss = 0.01806358
+Iteration 13, loss = 0.01382121
+Iteration 14, loss = 0.01484424
+Iteration 15, loss = 0.03637161
+Iteration 16, loss = 0.02174680
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+Training set score: 0.870271
+Testing set score: 0.884766
+==============================================================================================
+Neurons 1, eta 0.1. Testing set CV score: -10.332821
+Neurons 1, eta 0.1. Testing set CV score: -10.332821
+Neurons 1, eta 0.2. Testing set CV score: -7.895644
+Neurons 1, eta 0.4. Testing set CV score: -3.448646
+Neurons 3, eta 0.1. Testing set CV score: -3.284196
+Neurons 47, eta 0.2. Testing set CV score: -2.714787
+Neurons 80, eta 0.1. Testing set CV score: -2.523600
+Neurons 82, eta 0.1. Testing set CV score: -2.265865
+Neurons 89, eta 0.1. Testing set CV score: -2.121566
+Iteration 1, loss = 1.74872267
+Iteration 2, loss = 0.47535729
+Iteration 3, loss = 0.11481948
+Iteration 4, loss = 0.13933582
+Iteration 5, loss = 0.06266864
+Iteration 6, loss = 0.06110804
+Iteration 7, loss = 0.03776471
+Iteration 8, loss = 0.02545426
+Iteration 9, loss = 0.01939529
+Iteration 10, loss = 0.01708167
+Iteration 11, loss = 0.01547659
+Iteration 12, loss = 0.01494716
+Iteration 13, loss = 0.01270296
+Iteration 14, loss = 0.01159476
+Iteration 15, loss = 0.01233199
+Iteration 16, loss = 0.01093692
+Iteration 17, loss = 0.01183817
+Iteration 18, loss = 0.01139745
+Iteration 19, loss = 0.01087359
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+Iteration 1, loss = 1.54106656
+Iteration 2, loss = 0.44271488
+Iteration 3, loss = 0.11514553
+Iteration 4, loss = 0.13103216
+Iteration 5, loss = 0.04711881
+Iteration 6, loss = 0.05662829
+Iteration 7, loss = 0.02483637
+Iteration 8, loss = 0.03117720
+Iteration 9, loss = 0.01785356
+Iteration 10, loss = 0.01588937
+Iteration 11, loss = 0.01368026
+Iteration 12, loss = 0.01112108
+Iteration 13, loss = 0.01000078
+Iteration 14, loss = 0.01035375
+Iteration 15, loss = 0.00995724
+Iteration 16, loss = 0.00936536
+Iteration 17, loss = 0.00936718
+Iteration 18, loss = 0.00943400
+Iteration 19, loss = 0.00887526
+Iteration 20, loss = 0.00842005
+Iteration 21, loss = 0.00807060
+Iteration 22, loss = 0.00822557
+Iteration 23, loss = 0.00859695
+Iteration 24, loss = 0.00783721
+Iteration 25, loss = 0.00763104
+Iteration 26, loss = 0.00768083
+Iteration 27, loss = 0.00708481
+Iteration 28, loss = 0.00692616
+Iteration 29, loss = 0.00755692
+Iteration 30, loss = 0.00698149
+Iteration 31, loss = 0.00652664
+Iteration 32, loss = 0.00668144
+Iteration 33, loss = 0.00756838
+Iteration 34, loss = 0.00690026
+Training loss did not improve more than tol=0.000100 for two consecutive epochs. Stopping.
+Training set score: 0.934033
+Testing set score: 0.925229
+==============================================================================================
