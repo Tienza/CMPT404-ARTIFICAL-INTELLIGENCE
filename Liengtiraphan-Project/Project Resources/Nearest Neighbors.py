@@ -43,7 +43,7 @@ for clusters in range(2,101,1):
  
     labels = clf.labels_ 
     kscore.append(metrics.silhouette_score(X_train, labels, metric='euclidean'))
-    print kscore[k]
+    print(kscore[k])
     k=k+1
   
   print (clusters)
