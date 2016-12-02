@@ -17,7 +17,7 @@ import time
 import os
 
 # How many times to run KMeans.py
-run_times = 5
+run_times = 1
 
 for i in range(run_times):
     # read digits data & split it into X (training input) and y (target output)
@@ -29,44 +29,52 @@ for i in range(run_times):
 
     bestk = []
     kc = 0
-    for clusters in range(2, 101, 1):
-        kf = KFold(n_splits=10)
-        # clusters = 85
-        kscore = []
-        k = 0
-
     result_num = len(os.listdir('KMeans_Results'))
     with open('KMeans_Results/kmeans_results' + str(result_num) + '.txt', 'w') as file:
-        for train, test in kf.split(X):
-            #print("%s %s" % (train, test))
-            X_train, X_test = X[train], X[test]
+        for clusters in range(2, 101, 1):
+            kf = KFold(n_splits=10)
+            # clusters = 85
+            kscore = []
+            k = 0
 
-            #time.sleep(100)
+            print("============ KScore ============")
+            file.writelines("============ KScore ============" + "\n")
+            for train, test in kf.split(X):
+                #print("%s %s" % (train, test))
+                X_train, X_test = X[train], X[test]
 
-            # we create an instance of Neighbors Classifier and fit the data.
-            clf = KMeans(n_clusters=clusters)
-            clf.fit(X_train)
+                #time.sleep(100)
 
-            labels = clf.labels_
-            kscore.append(metrics.silhouette_score(X_train, labels, metric='euclidean'))
-            print(kscore[k])
-            file.writelines(str(kscore[k]) + "\n")
-            k=k+1
+                # we create an instance of Neighbors Classifier and fit the data.
+                clf = KMeans(n_clusters=clusters)
+                clf.fit(X_train)
 
-        print("============ Clusters ============")
-        file.writelines("============ Clusters ============" + "\n")
-        print (clusters)
-        file.writelines(str(clusters) + "\n")
-        bestk.append(sum(kscore)/len(kscore))
-        print("============ BestK[KC] ============")
-        print(bestk[kc])
-        file.writelines("============ BestK[KC] ============" + "\n")
-        file.writelines(str(bestk[kc]) + "\n")
-        kc+=1
+                labels = clf.labels_
+                kscore.append(metrics.silhouette_score(X_train, labels, metric='euclidean'))
 
-        # to do here: given this array of E_outs in CV, find the max, its
-        # corresponding index, and its corresponding value of clusters
+                print(kscore[k])
+                file.writelines(str(kscore[k]) + "\n")
+                k=k+1
+
+            print("============ Clusters ============")
+            file.writelines("============ Clusters ============" + "\n")
+            print (clusters)
+            file.writelines(str(clusters) + "\n")
+            bestk.append(sum(kscore)/len(kscore))
+            print("============ BestK[KC] ============")
+            print(bestk[kc])
+            file.writelines("============ BestK[KC] ============" + "\n")
+            file.writelines(str(bestk[kc]) + "\n")
+            kc+=1
+
+            # to do here: given this array of E_outs in CV, find the max, its
+            # corresponding index, and its corresponding value of clusters
+            print("============ BestK Array ============")
+            file.writelines("============ BestK Array ============" + "\n")
+            print(bestk)
+            file.writelines(str(bestk) + "\n")
+
         print("============ BestK ============")
-        file.writelines("============ BestK[KC] ============" + "\n")
-        print(bestk)
-        file.writelines(str(bestk))
+        file.writelines("============ BestK ============" + "\n")
+        print(max(bestk))
+        file.writelines(str(max(bestk)))
