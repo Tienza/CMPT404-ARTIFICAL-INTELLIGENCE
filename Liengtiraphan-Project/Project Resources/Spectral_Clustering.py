@@ -1,20 +1,17 @@
 """
 ================================
-KMeans
+Spectral Clustering
 ================================
-Modified in class by Dr. Rivas
+Modified on 2016-12-06 by Piradon Liengtiraphan with help from Dr. Rivas
 """
 
-import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.colors import ListedColormap
-from sklearn.cluster import KMeans
 from sklearn import metrics
-from sklearn.metrics import pairwise_distances
 from numpy import genfromtxt
 from sklearn.model_selection import KFold
-import time
+from sklearn.cluster import SpectralClustering
 import os
+import time
 
 # Start Timer
 start_time = time.time()
@@ -33,7 +30,7 @@ for i in range(run_times):
     bestk = []
     kc = 0
     result_num = len(os.listdir('KMeans_Results'))
-    with open('KMeans_Results/kmeans_results' + str(result_num) + '.txt', 'w') as file:
+    with open('Spectral_Clustering_Results/spectral_clustering_results' + str(result_num) + '.txt', 'w') as file:
         for clusters in range(2, 101, 1):
             kf = KFold(n_splits=10)
             # clusters = 85
@@ -49,7 +46,7 @@ for i in range(run_times):
                 #time.sleep(100)
 
                 # we create an instance of Neighbors Classifier and fit the data.
-                clf = KMeans(n_clusters=clusters)
+                clf = SpectralClustering(n_clusters=clusters)
                 clf.fit(X_train)
 
                 labels = clf.labels_
@@ -94,5 +91,5 @@ for i in range(run_times):
         file.writelines("============ Running Time ============" + "\n")
         print("Seconds Time Format --- %s seconds ---" % (time.time() - start_time))
         print("Normal Time Format --- %d:%02d:%02d ---" % (hours, minutes, seconds))
-        file.writelines(str("Seconds Time Format --- %s seconds ---" % (time.time() - start_time)) + "\n")
+        file.writelines(str("Seconds Time Format --- %s seconds ---" % (time.time() - start_time) + "\n"))
         file.writelines(str("Normal Time Format --- %d:%02d:%02d ---" % (hours, minutes, seconds)))
