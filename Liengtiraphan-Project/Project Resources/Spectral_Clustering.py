@@ -37,8 +37,8 @@ for i in range(run_times):
             kscore = []
             k = 0
 
-            print("============ KScore ============")
-            file.writelines("============ KScore ============" + "\n")
+            print("============ Spectral Score ============")
+            file.writelines("============ Spectral Score ============" + "\n")
             for train, test in kf.split(X):
                 #print("%s %s" % (train, test))
                 X_train, X_test = X[train], X[test]
@@ -61,25 +61,25 @@ for i in range(run_times):
             print (clusters)
             file.writelines(str(clusters) + "\n")
             bestk.append(sum(kscore)/len(kscore))
-            print("============ BestK[KC] ============")
+            print("============ Best Spectral[Spectral] ============")
             print(bestk[kc])
-            file.writelines("============ BestK[KC] ============" + "\n")
+            file.writelines("============ Best Spectral[Spectral] ============" + "\n")
             file.writelines(str(bestk[kc]) + "\n")
             kc+=1
 
             # to do here: given this array of E_outs in CV, find the max, its
             # corresponding index, and its corresponding value of clusters
-            print("============ BestK Array ============")
-            file.writelines("============ BestK Array ============" + "\n")
+            print("============ Best Spectral Array ============")
+            file.writelines("============ Best Spectral Array ============" + "\n")
             print(bestk)
             file.writelines(str(bestk) + "\n")
 
-        print("============ BestK ============")
-        file.writelines("============ BestK ============" + "\n")
+        print("============ Best Spectral ============")
+        file.writelines("============ Best Spectral ============" + "\n")
         print(max(bestk))
         file.writelines(str(max(bestk)))
-        print("============ BestK Index ============")
-        file.writelines("============ BestK Index ============" + "\n")
+        print("============ Best Spectral Index ============")
+        file.writelines("============ Best Spectral Index ============" + "\n")
         print(bestk.index(max(bestk)))
         file.writelines(str(bestk.index(max(bestk))) + "\n")
 
