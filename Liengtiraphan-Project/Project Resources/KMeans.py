@@ -80,7 +80,7 @@ for i in range(run_times):
         print("============ BestK ============")
         file.writelines("============ BestK ============" + "\n")
         print(max(bestk))
-        file.writelines(str(max(bestk)))
+        file.writelines(str(max(bestk)) + "\n")
         print("============ BestK Index ============")
         file.writelines("============ BestK Index ============" + "\n")
         print(bestk.index(max(bestk)))

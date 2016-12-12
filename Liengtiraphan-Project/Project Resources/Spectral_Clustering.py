@@ -77,7 +77,7 @@ for i in range(run_times):
         print("============ Best Spectral ============")
         file.writelines("============ Best Spectral ============" + "\n")
         print(max(bestk))
-        file.writelines(str(max(bestk)))
+        file.writelines(str(max(bestk)) + "\n")
         print("============ Best Spectral Index ============")
         file.writelines("============ Best Spectral Index ============" + "\n")
         print(bestk.index(max(bestk)))
