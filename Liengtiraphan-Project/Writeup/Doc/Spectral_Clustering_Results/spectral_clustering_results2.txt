@@ -1,0 +1,131 @@
+C:\Users\Tien\Anaconda3\python.exe "C:/Users/Tien/Documents/GitHub/CMPT404-ARTIFICAL-INTELLIGENCE/Liengtiraphan-Project/Project Resources/Spectral_Clustering.py"
+============ Spectral Score ============
+C:\Users\Tien\Anaconda3\lib\site-packages\sklearn\manifold\spectral_embedding_.py:229: UserWarning: Graph is not fully connected, spectral embedding may not work as expected.
+  warnings.warn("Graph is not fully connected, spectral embedding"
+0.0484816710418
+0.16660491893
+0.0772048713111
+0.163109753029
+0.152412243178
+-0.00411852741039
+0.026742681947
+0.0227316560238
+0.0801191385895
+0.0546185810486
+============ Clusters ============
+2
+============ Best Spectral[Spectral] ============
+0.0787906987688
+============ Best Spectral Array ============
+[0.078790698768848838]
+============ Spectral Score ============
+0.022999238994
+-0.261186147035
+-0.122741430192
+-0.05146421372
+-0.0878573523052
+-0.0663769705043
+-0.0664505955285
+-0.061153741402
+0.00942464321181
+-0.0017244799215
+============ Clusters ============
+3
+============ Best Spectral[Spectral] ============
+-0.0686531048402
+============ Best Spectral Array ============
+[0.078790698768848838, -0.068653104840236498]
+============ Spectral Score ============
+0.0525973481576
+-0.25480935261
+-0.273769269741
+-0.180320445759
+-0.20441805012
+-0.177537915858
+-0.242277866937
+-0.339567621396
+-0.14790192556
+-0.135935094523
+============ Clusters ============
+4
+============ Best Spectral[Spectral] ============
+-0.190394019435
+============ Best Spectral Array ============
+[0.078790698768848838, -0.068653104840236498, -0.19039401943456982]
+============ Spectral Score ============
+-0.105858583329
+-0.270775902003
+-0.474300288071
+-0.206179285044
+-0.234447435907
+-0.216134868108
+-0.147896685837
+-0.0964428212795
+-0.214974694949
+-0.211370879298
+============ Clusters ============
+5
+============ Best Spectral[Spectral] ============
+-0.217838144383
+============ Best Spectral Array ============
+[0.078790698768848838, -0.068653104840236498, -0.19039401943456982, -0.21783814438250965]
+============ Spectral Score ============
+-0.186186885501
+-0.25459576649
+-0.323890886116
+-0.157683219312
+-0.279702127746
+-0.312927295593
+-0.366274812642
+-0.348164399353
+-0.330712132032
+-0.116930154835
+============ Clusters ============
+6
+============ Best Spectral[Spectral] ============
+-0.267706767962
+============ Best Spectral Array ============
+[0.078790698768848838, -0.068653104840236498, -0.19039401943456982, -0.21783814438250965, -0.26770676796197179]
+============ Spectral Score ============
+-0.37499441066
+-0.357697158733
+-0.242083822221
+-0.255231133085
+-0.504988612804
+-0.330534342404
+-0.44216287604
+-0.378824049779
+-0.369337074558
+-0.29373030189
+============ Clusters ============
+7
+============ Best Spectral[Spectral] ============
+-0.354958378217
+============ Best Spectral Array ============
+[0.078790698768848838, -0.068653104840236498, -0.19039401943456982, -0.21783814438250965, -0.26770676796197179, -0.3549583782173325]
+============ Spectral Score ============
+-0.354512685008
+-0.494370091339
+-0.480637141828
+-0.434528096309
+-0.503511834881
+-0.346099923887
+-0.330184698276
+Traceback (most recent call last):
+  File "C:/Users/Tien/Documents/GitHub/CMPT404-ARTIFICAL-INTELLIGENCE/Liengtiraphan-Project/Project Resources/Spectral_Clustering.py", line 50, in <module>
+    clf.fit(X_train)
+  File "C:\Users\Tien\Anaconda3\lib\site-packages\sklearn\cluster\spectral.py", line 463, in fit
+    assign_labels=self.assign_labels)
+  File "C:\Users\Tien\Anaconda3\lib\site-packages\sklearn\cluster\spectral.py", line 258, in spectral_clustering
+    eigen_tol=eigen_tol, drop_first=False)
+  File "C:\Users\Tien\Anaconda3\lib\site-packages\sklearn\manifold\spectral_embedding_.py", line 312, in spectral_embedding
+    largest=False, maxiter=2000)
+  File "C:\Users\Tien\Anaconda3\lib\site-packages\scipy\sparse\linalg\eigen\lobpcg\lobpcg.py", line 455, in lobpcg
+    activeBlockVectorBP, retInvR=True)
+  File "C:\Users\Tien\Anaconda3\lib\site-packages\scipy\sparse\linalg\eigen\lobpcg\lobpcg.py", line 101, in _b_orthonormalize
+    gramVBV = cholesky(gramVBV)
+  File "C:\Users\Tien\Anaconda3\lib\site-packages\scipy\linalg\decomp_cholesky.py", line 81, in cholesky
+    check_finite=check_finite)
+  File "C:\Users\Tien\Anaconda3\lib\site-packages\scipy\linalg\decomp_cholesky.py", line 30, in _cholesky
+    raise LinAlgError("%d-th leading minor not positive definite" % info)
+numpy.linalg.linalg.LinAlgError: 6-th leading minor not positive definite

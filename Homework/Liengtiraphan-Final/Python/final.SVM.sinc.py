@@ -27,11 +27,15 @@ with open('../Documents/final.SVM.sinc.py_Results/final.SVM.sinc.results' + str(
   print("============ CV Score ============")
   file.writelines("============ CV Score ============" + "\n")
   for penC in np.logspace(-5, 15, num=11, base=2):
+    print("penC...")
     for tubEpsilon in np.linspace(0, 1, num=11):
+      print("tubeEpsilon....")
       for paramGamma in np.logspace(-15, 3, num=10, base=2):
+        print("KFold and paramGamma...")
         kf = KFold(n_splits=10)
         cvscore=[]
         for train, validation in kf.split(X):
+          print("Training and Validating....")
           X_train, X_validation, y_train, y_validation = X[train, :], X[validation, :], y[train], y[validation]
           # here we create the SVR
           svr =  SVR(C=penC, epsilon=tubEpsilon, gamma=paramGamma, kernel='rbf', verbose=False)

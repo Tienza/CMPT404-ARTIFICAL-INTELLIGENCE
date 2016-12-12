@@ -1,0 +1,7 @@
+============ CV Score ============
+C 0.03125, epsilon 0.0, gamma 3.0517578125e-05. Testing set CV score: -0.323644
+C 0.03125, epsilon 0.0, gamma 2.0. Testing set CV score: -0.075780
+C 0.125, epsilon 0.0, gamma 2.0. Testing set CV score: -0.037142
+C 0.5, epsilon 0.0, gamma 2.0. Testing set CV score: -0.001028
+C 2.0, epsilon 0.0, gamma 0.5. Testing set CV score: 0.077514
+C 8.0, epsilon 0.0, gamma 0.5. Testing set CV score: 0.325764
