@@ -1,6 +1,7 @@
 import finalGetDigits
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 from sklearn.svm import SVR
 from sklearn.model_selection import KFold
 
@@ -42,6 +43,8 @@ with open('../Documents/final.SVM.dig.py_Results/final.SVM.dig.results' + str(re
           bestGamma=paramGamma
           print("BEST! -> C " + str(penC) + ", epsilon " + str(tubEpsilon) + ", gamma " + str(paramGamma) + ". Testing set CV score: %f" % score)
           file.writelines("BEST! -> C " + str(penC) + ", epsilon " + str(tubEpsilon) + ", gamma " + str(paramGamma) + ". Testing set CV score: %f" % score + "\n")
+          print("___________________________________________")
+          file.writelines("___________________________________________" + "\n")
         else:
           print("C " + str(penC) + ", epsilon " + str(tubEpsilon) + ", gamma " + str(paramGamma) + ". Testing set CV score: %f" % score)
           file.writelines("C " + str(penC) + ", epsilon " + str(tubEpsilon) + ", gamma " + str(paramGamma) + ". Testing set CV score: %f" % score + "\n")

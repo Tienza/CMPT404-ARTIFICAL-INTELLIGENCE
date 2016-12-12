@@ -3,7 +3,7 @@ from numpy import genfromtxt
 
 def getDataSet():
     # Read digits data & split it into X and y for training and testing
-    dataset = getfromtxt('../Documents/Dataset/features.csv', delimiter=' ')
+    dataset = genfromtxt('../Documents/Dataset/features.csv', delimiter=' ')
     y = dataset[:, 0]
     X = dataset[:, 1:]
 

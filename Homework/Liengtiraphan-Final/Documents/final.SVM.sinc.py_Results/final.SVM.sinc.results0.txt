@@ -1,7 +1,14 @@
 ============ CV Score ============
-C 0.03125, epsilon 0.0, gamma 3.0517578125e-05. Testing set CV score: -0.323644
-C 0.03125, epsilon 0.0, gamma 2.0. Testing set CV score: -0.075780
-C 0.125, epsilon 0.0, gamma 2.0. Testing set CV score: -0.037142
-C 0.5, epsilon 0.0, gamma 2.0. Testing set CV score: -0.001028
-C 2.0, epsilon 0.0, gamma 0.5. Testing set CV score: 0.077514
-C 8.0, epsilon 0.0, gamma 0.5. Testing set CV score: 0.325764
+C 0.03125, epsilon 0.0, gamma 3.0517578125e-05. Testing set CV score: -0.216890
+C 0.03125, epsilon 0.0, gamma 2.0. Testing set CV score: 0.052094
+C 0.125, epsilon 0.0, gamma 2.0. Testing set CV score: 0.066389
+*..
+Warning: using -h 0 may be faster
+*
+optimization finished, #iter = 2623
+obj = -1.081123, rho = -0.030771
+nSV = 793, nBSV = 241
+============ E_out in Training ============
+Training set score: 0.999654
+============ Testing Set Score ============
+Testing set score: 0.998651
