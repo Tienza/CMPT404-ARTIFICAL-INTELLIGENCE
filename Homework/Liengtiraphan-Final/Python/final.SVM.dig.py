@@ -41,6 +41,7 @@ with open('../Documents/final.SVM.dig.py_Results/final.SVM.dig.results' + str(re
           bestC=penC
           bestEpsilon=tubEpsilon
           bestGamma=paramGamma
+          BEST = "BEST! -> C " + str(penC) + ", epsilon " + str(tubEpsilon) + ", gamma " + str(paramGamma) + ". Testing set CV score: %f" % score
           print("BEST! -> C " + str(penC) + ", epsilon " + str(tubEpsilon) + ", gamma " + str(paramGamma) + ". Testing set CV score: %f" % score)
           file.writelines("BEST! -> C " + str(penC) + ", epsilon " + str(tubEpsilon) + ", gamma " + str(paramGamma) + ". Testing set CV score: %f" % score + "\n")
           print("___________________________________________")
@@ -53,6 +54,11 @@ with open('../Documents/final.SVM.dig.py_Results/final.SVM.dig.results' + str(re
   svr =  SVR(C=bestC, epsilon=bestEpsilon, gamma=bestGamma, kernel='rbf', verbose=True)
   # here we train the final SVR
   svr.fit(X, y)
+  # Print Final Best
+  print("============ Final BEST ============")
+  file.writelines("============ Final BEST ============" + "\n")
+  print(BEST)
+  file.write(str(BEST) + "\n")
   # E_out in training
   print("============ E_out in Training ============")
   file.writelines("============ E_out in Training ============" + "\n")

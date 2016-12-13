@@ -765,6 +765,8 @@ C 4096.0, epsilon 2.5, gamma 0.25. Testing set CV score: 0.276134
 optimization finished, #iter = 604684
 obj = -26731900.053213, rho = -68.674752
 nSV = 3939, nBSV = 3926
+============ Final BEST ============
+C 4096.0, epsilon 1.3, gamma 0.0625. Testing set CV score: 0.336943
 ============ E_out in Training ============
 Training set score: 0.347283
 ============ Testing Set Score ============
